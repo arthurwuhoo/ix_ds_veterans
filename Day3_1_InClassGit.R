@@ -52,7 +52,7 @@ vetdata[which(vetdata$PercentVets == max(vetdata$PercentVets)), 1]
 vetdata[which(vetdata$PercentVets == min(vetdata$PercentVets)), 1]
 vetdata$CloseToAvgPercent <- abs(vetdata$PercentVets - mean(vetdata$PercentVets))
 vetdata[which(vetdata$CloseToAvgPercent == min(vetdata$CloseToAvgPercent)), 1]
-### Print out the answers.
+### Print out the answers. hi
 
 
 
