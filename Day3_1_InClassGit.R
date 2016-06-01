@@ -18,10 +18,8 @@
 # Go to this link to download the data:
 # https://drive.google.com/file/d/0B3UuwwbJdu0VYnExbTh0aEFYcDg/view?usp=sharing
   
-setwd("C:/Users/arthu/Downloads/")
+# setwd("C:/Users/arthu/Downloads/")
 vetdata <- read.csv("vet_pop_2014.csv")
-
-head(vetdata)
 
 #=================================================================================
 ### SECTION 1: 
@@ -83,7 +81,18 @@ head(vetdata)
 #=================================================================================
 
 #Start working here, commit and push changes when ready.
+head(vetdata)
+View(vetdata)
+vetdata$State[vetdata$Hispanic.or.Latino..of.any.race. == max(vetdata$Hispanic.or.Latino..of.any.race.)] #Texas
+vetdata$State[vetdata$Hispanic.or.Latino..of.any.race. == min(vetdata$Hispanic.or.Latino..of.any.race.)] #Vermotn
+avgHisp <- mean(vetdata$Hispanic.or.Latino..of.any.race.)
+vetdata$State[abs(vetdata$Hispanic.or.Latino..of.any.race. - avgHisp) == min(abs(vetdata$Hispanic.or.Latino..of.any.race. - avgHisp))] #Washington
 
+vetdata$State[vetdata$Hispanic.or.Latino..of.any.race./vetdata$Total == max(vetdata$Hispanic.or.Latino..of.any.race./vetdata$Total)] #New Mexico
+vetdata$State[vetdata$Hispanic.or.Latino..of.any.race./vetdata$Total == min(vetdata$Hispanic.or.Latino..of.any.race./vetdata$Total)] #West Virginia
+vetdata$State[vetdata$Hispanic.or.Latino..of.any.race./vetdata$Total - mean(vetdata$Hispanic.or.Latino..of.any.race./vetdata$Total) == min(vetdata$Hispanic.or.Latino..of.any.race./vetdata$Total - mean(vetdata$Hispanic.or.Latino..of.any.race./vetdata$Total))]
+avgHispPercent <- mean(vetdata$Hispanic.or.Latino..of.any.race./vetdata$Total)
+vetdata$State[abs(vetdata$Hispanic.or.Latino..of.any.race./vetdata$Total - avgHispPercent) == min(abs(vetdata$Hispanic.or.Latino..of.any.race./vetdata$Total - avgHispPercent))] #District of Columbia
 
 
 #=================================================================================
