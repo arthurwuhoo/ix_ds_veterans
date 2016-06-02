@@ -50,9 +50,29 @@ head(vetdata)
 #=================================================================================
 
 #Start working here, commit and push changes when ready.
+#State with most MIXED race veterans
+max_mixed <- vetdata$State[which.max(vets$Two.or.more.races)]
+#State with least MIXED race veterns
+min_mixed <- vetdata$State[which.min(vets$Two.or.more.races)]
+#State closest to the average number of mixed race
+avg_mixed <- vetdata$State[which.min(abs(vetdata$Two.or.more.races-mean(vetdata$Two.or.more.races)))]
 
+#Percentage
+percent_mixed <- vetdata$Two.or.more.races/vetdata$Total
+#State with highest percentage mixed
+max_perMixed <- vetdata$State[which.max(percent_mixed)]
+#State with lowest percentage mixed
+min_perMixed <- vetdata$State[which.min(percent_mixed)]
+#State closest to mean percentage mixed
+avg_perMixed <- vetdata$State[which.min(abs(percent_mixed - mean(percent_mixed)))]
 
-
+#print it out
+max_mixed
+min_mixed
+avg_mixed
+max_perMixed
+min_perMixed
+avg_perMixed
 
 #=================================================================================
 ### SECTION 3: 
