@@ -18,7 +18,6 @@
 # Go to this link to download the data:
 # https://drive.google.com/file/d/0B3UuwwbJdu0VYnExbTh0aEFYcDg/view?usp=sharing
   
-setwd("C:/Users/arthu/Downloads/")
 vetdata <- read.csv("vet_pop_2014.csv")
 
 head(vetdata)
@@ -85,9 +84,8 @@ head(vetdata)
 #Start working here, commit and push changes when ready.
 
 
-
 #=================================================================================
-### SECTION 2: 
+### SECTION 5: 
 ### Which state has the most ASIAN race veterans? 
 ### The least? Which state has the closest value to the average?
 
@@ -98,10 +96,12 @@ head(vetdata)
 #=================================================================================
 
 #Start working here, commit and push changes when ready.
-
-
-
-
+vetdata[which.max(vetdata$Asian.alone),]$State
+vetdata[which.min(vetdata$Asian.alone),]$State
+vetdata[which.min((vetdata$Asian.alone - mean(vetdata$Asian.alone))^2),]$State
+vetdata[which.max(vetdata$Asian.alone/vetdata$State.Population),]$State
+vetdata[which.min(vetdata$Asian.alone/vetdata$State.Population),]$State
+vetdata[which.min((vetdata$Asian.alone/vetdata$State.Population - mean(vetdata$Asian.alone/vetdata$State.Population))^2),]$State
 
 
 #=================================================================================
